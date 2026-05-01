@@ -36,12 +36,14 @@ class CartController extends Controller
             ->first();
 
         if (!$cart) {
+            \Log::info('CartController@index', ['items_count' => 0]);
             return response()->json([
                 'items' => [],
                 'total' => 0,
             ]);
         }
 
+        \Log::info('CartController@index', ['items_count' => count($cart->items)]);
         return response()->json([
             'items' => $cart->items,
             'total' => $cart->getTotal(),

@@ -25,6 +25,7 @@ const Products = () => {
   };
 
   const fetchProducts = async (page = 1) => {
+    console.log('fetchProducts called', { selectedCategory, search, page });
     let url = '/products';
     const params = { page };
     if (selectedCategory) params.category_id = selectedCategory;
@@ -34,6 +35,7 @@ const Products = () => {
     setProducts(response.data.data);
     setPagination(response.data.meta);
     setCurrentPage(response.data.meta.current_page);
+    console.log('Pagination meta:', response.data.meta);
   };
 
   // Remove useEffect for products, handle via user actions only

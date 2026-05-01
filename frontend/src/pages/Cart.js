@@ -30,6 +30,7 @@ const Cart = () => {
   
   useEffect(() => {
     if (user && !fetchedRef.current) {
+      console.log('fetchCart called');
       fetchCart();
       fetchedRef.current = true;
     }
@@ -61,6 +62,7 @@ const Cart = () => {
     
     // Set new timer
     debounceTimers.current[itemId] = setTimeout(() => {
+      console.log('updateCartItem called', itemId, newQuantity);
       updateCartItem(itemId, newQuantity).then(() => {
         // After successful update, clear the pending quantity if it matches backend
         setPendingQuantities((prev) => {

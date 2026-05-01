@@ -24,3 +24,25 @@
 - **Issue:** The cart API response included the 'items' array both as a top-level field and inside the 'data' cart object, causing unnecessary duplication.
 - **Resolution:** Removed the redundant 'data' field from the cart API response. Now, only 'items' and 'total' are returned, making the response cleaner and more efficient for frontend consumption.
 
+---
+
+## Debugging Evidence
+
+### 1. Login/Register error handling missing
+- **Frontend:** Added `console.log(error)` inside the catch block in `AuthContext.js` to trace API errors during login/register.
+
+### 2. Duplicate API calls for products and categories
+- **Frontend:** Added `console.log('fetchProducts called', { selectedCategory, search });` at the start of `fetchProducts` in `Products.js` to verify when and why the API was called multiple times.
+
+### 3. Pagination not implemented in Products page
+- **Frontend:** Added `console.log('Pagination meta:', response.data.meta);` after fetching products in `Products.js` to confirm pagination data is received and handled.
+
+### 4. Duplicate cart API calls
+- **Frontend:** Added `console.log('fetchCart called')` in `Cart.js` to trace how many times the cart API is called on mount.
+
+### 5. Consecutive API calls on cart add/remove/quantity update
+- **Frontend:** Added `console.log('updateCartItem called', itemId, newQuantity);` in `Cart.js` to verify debounce effectiveness and ensure only one API call is made after rapid changes.
+
+### 6. Redundant 'items' field in cart API response
+- **Backend:** Added `\Log::info('CartController@index', ['items_count' => count($cart ? $cart->items : [])]);` in `CartController.php` to confirm the structure and count of items returned in the API response.
+

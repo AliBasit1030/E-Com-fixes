@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
       setToken(authToken);
       return userData;
     } catch (error) {
+      console.log('Login error:', error);
       if (error.response && error.response.data && error.response.data.message) {
         throw new Error(error.response.data.message);
       } else if (error.response && error.response.data && error.response.data.errors) {
@@ -44,6 +45,7 @@ export const AuthProvider = ({ children }) => {
       setToken(authToken);
       return userData;
     } catch (error) {
+      console.log('Register error:', error);
       if (error.response && error.response.data && error.response.data.message) {
         throw new Error(error.response.data.message);
       } else if (error.response && error.response.data && error.response.data.errors) {
