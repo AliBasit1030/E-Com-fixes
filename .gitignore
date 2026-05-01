@@ -1,0 +1,53 @@
+# Laravel
+/storage/
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+/.env
+/.env.*
+Homestead.json
+Homestead.yaml
+.phpunit.result.cache
+/database/database.sqlite
+/database/*.sqlite
+/database/*.sqlite3
+
+# Laravel IDE Helper
+_ide_helper.php
+.phpstorm.meta.php
+
+# Laravel Mix
+/public/hot
+/public/mix-manifest.json
+/public/css/app.css
+/public/js/app.js
+
+# NPM
+npm-debug.log
+yarn-error.log
+
+# Vite
+/public/build/
+
+# Mac
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Log files
+*.log
+/storage/logs/
+
+# Coverage
+coverage/
+
+# Misc
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Frontend build
+frontend/build/
